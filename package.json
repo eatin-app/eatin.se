@@ -1,0 +1,37 @@
+{
+  "name": "eatin-webapp",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node_modules/.bin/http-server -p 3004",
+    "build": "node_modules/.bin/gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andreas Hultgren",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.2.19",
+    "angular-route": "^1.2.17-build.163.1",
+    "npm-angular-resource": "^1.3.0-build.2880"
+  },
+  "devDependencies": {
+    "browserify": "~5.11.0",
+    "gulp": "~3.8.0",
+    "gulp-changed": "~1.0.0",
+    "gulp-combine-media-queries": "~0.1.0",
+    "gulp-jshint": "~1.8.4",
+    "gulp-less": "~1.3.5",
+    "gulp-minify-css": "~0.3.7",
+    "gulp-notify": "~1.6.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-sourcemaps": "~1.1.1",
+    "gulp-streamify": "~0.0.5",
+    "gulp-uglify": "~1.0.1",
+    "gulp-util": "~3.0.0",
+    "http-server": "^0.7.1",
+    "jshint-stylish": "~0.4.0",
+    "map-stream": "~0.1.0",
+    "mold-source-map": "~0.3.0",
+    "vinyl-source-stream": "~1.0.0"
+  }
+}
