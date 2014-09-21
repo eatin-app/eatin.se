@@ -10,19 +10,17 @@ var gulp = require("gulp"),
     handleErrors = require("../util/handleErrors"),
     config = require("../config");
 
-gulp.task("less", [ "lessDev", "lessProd", "lessIe" ]);
-
-gulp.task("lessDev", function() {
-    gulp.src(path.join(config.root, "less", "main.less"))
+gulp.task("less", function() {
+    return gulp.src(path.join(config.root, "less", "main.less"))
         .pipe(sourcemaps.init())
         .pipe(less())
         .on("error", handleErrors.warning)
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.join(config.root, "builds", "css")));
+        .pipe(gulp.dest(path.join(config.root, "dist")));
 });
 
-gulp.task("lessProd", function() {
-    gulp.src(path.join(config.root, "less", "main.less"))
+gulp.task("less-production", function() {
+    return gulp.src(path.join(config.root, "less", "main.less"))
         .pipe(less())
         .on("error", handleErrors.warning)
         .pipe(cmq({
@@ -30,13 +28,6 @@ gulp.task("lessProd", function() {
         }))
         .pipe(minifyCss())
         .on("error", handleErrors.warning)
-        .pipe(rename("main.min.css"))
-        .pipe(gulp.dest(path.join(config.root, "builds", "css")));
-});
-
-gulp.task("lessIe", function() {
-    gulp.src(path.join(config.root, "less", "ie.less"))
-        .pipe(less())
-        .on("error", handleErrors.warning)
-        .pipe(gulp.dest(path.join(config.root, "builds", "css")));
+        //.pipe(rename("main.css"))
+        .pipe(gulp.dest(path.join("builds", "production", "dist")));
 });

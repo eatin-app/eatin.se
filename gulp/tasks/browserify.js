@@ -22,16 +22,25 @@ gulp.task("browserify", [ "jshint" ], function() {
         .on("error", handleErrors.warning)
         .pipe(mold.transformSourcesRelativeTo(path.join(config.root, "js")));
 
-    bundle.pipe(source("app.js"))
-        .pipe(gulp.dest(path.join(config.root, "builds", "js")));
+    return bundle.pipe(source("app.js"))
+        .pipe(gulp.dest(path.join(config.root, "dist")));
+});
 
-    bundle.pipe(source("app.min.js"))
+gulp.task("browserify-production", function() {
+    var bundle = browserify("./builds/production/js/app.js",
+            { debug: true }
+        )
+        .bundle()
+        .on("error", handleErrors.warning)
+        .pipe(mold.transformSourcesRelativeTo(path.join(config.root, "js")));
+
+    return bundle.pipe(source("app.js"))
         .pipe(streamify(uglify()))
-        .pipe(gulp.dest(path.join(config.root, "builds", "js")));
+        .pipe(gulp.dest(path.join("./builds/production/dist")));
 });
 
 gulp.task("jshint", function() {
-    gulp.src([ path.join(config.root, "js", "**", "*.js"),
+    return gulp.src([ path.join(config.root, "js", "**", "*.js"),
         "!" + config.root + "/js/" + config.excludedJsFolder + "{,/**}" ])
         .pipe(jshint())
         .pipe(jshint.reporter("jshint-stylish"))
