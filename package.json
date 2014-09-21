@@ -31,9 +31,11 @@
     "gulp-util": "~3.0.0",
     "http-server": "^0.7.1",
     "jshint-stylish": "~0.4.0",
+    "lets": "0.0.10",
     "map-stream": "~0.1.0",
     "mold-source-map": "~0.3.0",
     "run-sequence": "^0.3.7",
+    "s3": "^4.2.0",
     "vinyl-source-stream": "~1.0.0"
   }
 }
