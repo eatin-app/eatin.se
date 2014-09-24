@@ -2,9 +2,8 @@
   Welcome or something Lorem ipsum Minim ut mollit ex amet aute minim eiusmod cupidatat esse aliquip dolore incididunt aliquip qui in fugiat dolore magna laborum cupidatat nisi elit reprehenderit nisi tempor pariatur irure ut irure nisi deserunt ullamco dolor aute.
 </p>
 <h2>Hosts:</h2>
-<ul class="users">
-  <li ng-repeat="user in hosts">
-    <a href="#/users/{{user.id}}">{{user.name}}</a>
+<ul class="hosts">
+  <li class="hosts__host" ng-repeat="host in hosts">
+    <a href="#/users/{{host.id}}">{{host.name}}</a>
   </li>
 </ul>
-<p ng-show="test">MJAU</p>
