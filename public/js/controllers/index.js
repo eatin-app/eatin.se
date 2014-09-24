@@ -6,3 +6,4 @@ var angular = require('angular');
 var controllers = angular.module(module.exports, []);
 
 controllers.controller('UsersCtrl', require('./UsersCtrl'));
+controllers.controller('footerMenuCtrl', require('./footerCtrl'));
