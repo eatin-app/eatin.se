@@ -3,5 +3,5 @@
 //var config = require('../config');
 
 module.exports = ['$resource', function ($resource) {
-  return $resource('testdata/users.json');
+  return $resource('testdata/users/:id.json');
 }];

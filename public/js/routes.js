@@ -2,12 +2,16 @@
 
 module.exports = ['$routeProvider',
   function($routeProvider) {
-    $routeProvider.
-      when('/', {
+    $routeProvider
+      .when('/', {
         templateUrl: 'views/index.html',
         controller: 'UsersCtrl'
-      }).
-      otherwise({
+      })
+      .when('/host/:id', {
+        templateUrl: 'views/host.html',
+        controller: 'HostCtrl'
+      })
+      .otherwise({
         redirectTo: '/'
       });
   }
