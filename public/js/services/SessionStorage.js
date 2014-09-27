@@ -7,7 +7,7 @@ module.exports = ['$window', function($window) {
       return this;
     },
     get: function (key, fallback) {
-      return JSON.parse($window.sessionStorage[key] || fallback);
+      return JSON.parse($window.sessionStorage[key] || JSON.stringify(fallback));
     },
     remove: function remove (key) {
       delete $window.sessionStorage[key];

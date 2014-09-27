@@ -17,7 +17,11 @@ var loggedInItems = [
   },
   {
     url: 'profile',
-    text: 'Profile'
+    text: 'Profil'
+  },
+  {
+    url: 'logout',
+    text: 'Logga ut'
   }
 ];
 
