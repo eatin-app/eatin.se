@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = 'readerControllers';
+module.exports = 'controllers';
 
 var angular = require('angular');
 var controllers = angular.module(module.exports, []);

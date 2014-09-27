@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = 'readerServices';
+module.exports = 'services';
 
 var angular = require('angular');
 var services = angular.module(module.exports, ['ngResource']);
