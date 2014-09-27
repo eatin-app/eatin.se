@@ -1,7 +1,5 @@
 'use strict';
 
-//var config = require('../config');
-
-module.exports = ['$resource', function ($resource) {
-  return $resource('testdata/users/:id.json');
+module.exports = ['$resource', 'CONFIG', function ($resource, CONFIG) {
+  return $resource(CONFIG.apiUrl + '/users/:id.json');
 }];
