@@ -2,31 +2,35 @@
 
 var loggedOutItems = [
   {
-    url: 'login',
+    url: '/login',
     text: 'Logga in'
   },
   {
-    url: 'register',
+    url: '/register',
     text: 'Registrera'
   }
 ];
 var loggedInItems = [
   {
-    url: '',
+    url: '/',
     text: 'Hosts'
   },
   {
-    url: 'profile',
+    url: '/profile',
     text: 'Profil'
   },
   {
-    url: 'logout',
+    url: '/logout',
     text: 'Logga ut'
   }
 ];
 
-module.exports = ['$scope', 'Auth', 'AUTH_EVENTS',
-function ($scope, Auth, AUTH_EVENTS) {
+module.exports = ['$scope', '$location', 'Auth', 'AUTH_EVENTS',
+function ($scope, $location, Auth, AUTH_EVENTS) {
+  $scope.isActive = function isActive (viewPath) {
+    return viewPath === $location.path();
+  };
+
   $scope.$on(AUTH_EVENTS.userUpdated, setItems);
   setItems();
 

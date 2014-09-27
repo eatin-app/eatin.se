@@ -18,7 +18,13 @@
   <nav class="footer-menu" ng-controller="footerMenuCtrl">
     <ul class="footer-menu__inner" ng-hide="auth.isLoggedIn">
       <li class="footer-menu__item" ng-repeat="item in items">
-        <a class="footer-menu__link" href="#/{{item.url}}">{{item.text}}</a>
+        <a
+          class="footer-menu__link"
+          ng-class="{ 'footer-menu__link--active': isActive(item.url) }"
+          href="#{{item.url}}"
+          >
+          {{item.text}}
+        </a>
       </li>
     </ul>
   </nav>
