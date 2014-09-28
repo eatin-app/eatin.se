@@ -54,7 +54,13 @@ module.exports = function (lets) {
     });
 
     uploader.on('progress', function() {
-      logger.debug('lets-s3', 'Progress', uploader.progressAmount, uploader.progressTotal);
+      var progress = 0;
+
+      if(uploader.progressTotal !== 0) {
+        progress = Math.floor(100 * uploader.progressAmount/uploader.progressTotal);
+      }
+
+      logger.debug('lets-s3', 'Progress', progress + '%');
     });
 
     uploader.on('end', function() {
