@@ -28,6 +28,10 @@ module.exports = ['$routeProvider',
         templateUrl: 'views/bookins.html',
         controller: 'BookinsCtrl'
       })
+      .when('/bookouts', {
+        templateUrl: 'views/bookouts.html',
+        controller: 'BookoutsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

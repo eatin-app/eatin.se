@@ -24,6 +24,10 @@ var loggedInItems = [
     text: 'Bookins'
   },
   {
+    url: '/bookouts',
+    text: 'Bookouts'
+  },
+  {
     url: '/logout',
     text: 'Logga ut'
   }
