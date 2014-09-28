@@ -28,6 +28,10 @@ var loggedInItems = [
     text: 'Bookouts'
   },
   {
+    url: '/requests',
+    text: 'Förfrågningar'
+  },
+  {
     url: '/logout',
     text: 'Logga ut'
   }
