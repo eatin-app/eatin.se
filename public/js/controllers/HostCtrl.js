@@ -2,7 +2,7 @@
 
 module.exports = ['$scope', '$http', '$routeParams', 'User',
   function ($scope, $http, $routeParams, User) {
-    $scope.host = User.get({
+    $scope.user = User.get({
       id: $routeParams.id
     });
   }

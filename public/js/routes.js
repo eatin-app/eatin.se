@@ -16,8 +16,12 @@ module.exports = ['$routeProvider',
           redirect: require('./controllers/LogoutCtrl')
         }
       })
+      .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl'
+      })
       .when('/host/:id', {
-        templateUrl: 'views/host.html',
+        templateUrl: 'views/profile.html',
         controller: 'HostCtrl'
       })
       .otherwise({
