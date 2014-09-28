@@ -1,9 +1,7 @@
 'use strict';
 
-var angular = require('angular');
-
-module.exports = ['$scope', 'Auth', 'User',
-function ($scope, Auth, User) {
+module.exports = ['$rootScope', '$scope', 'Auth', 'User', 'AUTH_EVENTS',
+function ($rootScope, $scope, Auth, User, AUTH_EVENTS) {
   $scope.user = Auth.user;
   $scope.editable = true;
 
@@ -20,8 +18,10 @@ function ($scope, Auth, User) {
     $scope.error = '';
 
     newUser.$save().then(function saveSuccess () {
-      angular.extend($scope.user, newUser);
+      //## Fetch stored user instead of using the local one?
+      $scope.user = newUser;
       $scope.editing = false;
+      $rootScope.$broadcast(AUTH_EVENTS.userUpdated, newUser);
     }, function saveFail () {
       $scope.error = 'Save failed';
     });

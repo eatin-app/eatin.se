@@ -8,36 +8,39 @@ function ($rootScope, $http, SessionStorage, CONFIG, AUTH_EVENTS) {
     user: user,
     isLoggedIn: !!user.id,
     login: function login(username, password) {
-      var self = this;
+      var userData = {};
 
       //## While prototyping, disregard password
       //## Should be post
-      return $http.get(CONFIG.apiUrl + '/users/' + username, {
+      var request = $http.get(CONFIG.apiUrl + '/users/' + username, {
         password: password
-      }).then(function (result) {
-        self.user = result.data;
+      });
+
+      request.then(function (result) {
+        userData = result.data;
         $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
       }, function () {
-        self.user = {};
         $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-      }).then(function () {
-        self.isLoggedIn = !!self.user.id;
-        SessionStorage.set('user', self.user);
-        $rootScope.$broadcast(AUTH_EVENTS.userUpdated);
+      }).finally(function () {
+        $rootScope.$broadcast(AUTH_EVENTS.userUpdated, userData);
       });
+
+      return request;
     },
     logout: function () {
-      var self = this;
-
       return $http.post(CONFIG.apiUrl + '/logout').finally(function () {
-        self.user = {};
-        self.isLoggedIn = !!self.user.id;
-        SessionStorage.set('user', self.user);
-        $rootScope.$broadcast(AUTH_EVENTS.userUpdated);
+        $rootScope.$broadcast(AUTH_EVENTS.userUpdated, {});
         $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
       });
     }
   };
+
+  $rootScope.$on(AUTH_EVENTS.userUpdated, function (e, data) {
+    service.user = data;
+
+    service.isLoggedIn = !!service.user.id;
+    SessionStorage.set('user', data);
+  });
 
   return service;
 }];
