@@ -15,7 +15,7 @@
   </header>
   <section class="main" ng-view></section>
 
-  <nav class="footer-menu" ng-controller="footerMenuCtrl">
+  <nav class="footer-menu" ng-controller="NavigationCtrl">
     <ul class="footer-menu__inner" ng-hide="auth.isLoggedIn">
       <li class="footer-menu__item" ng-repeat="item in items">
         <a
