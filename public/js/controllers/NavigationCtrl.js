@@ -20,6 +20,10 @@ var loggedInItems = [
     text: 'Profil'
   },
   {
+    url: '/bookins',
+    text: 'Bookins'
+  },
+  {
     url: '/logout',
     text: 'Logga ut'
   }

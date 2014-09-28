@@ -1,0 +1,10 @@
+[
+  {
+    "id": "1",
+    "from": "1",
+    "to": "2",
+    "message": "Hej jag vill ha mat.",
+    "date": "2014-12-24T12:00Z",
+    "state": "accepted"
+  }
+]

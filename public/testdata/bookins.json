@@ -1,0 +1,13 @@
+[
+  {
+    "id": "1",
+    "from": {
+      "id": "1",
+      "name": "Andreas Hultgren"
+    },
+    "to": "2",
+    "message": "Hej jag vill ha mat.",
+    "date": "2014-12-24T12:00Z",
+    "state": "accepted"
+  }
+]
