@@ -25,15 +25,15 @@ module.exports = ['$routeProvider',
         controller: 'HostCtrl'
       })
       .when('/bookins', {
-        templateUrl: 'views/bookins.html',
+        templateUrl: 'views/bookings.html',
         controller: 'BookinsCtrl'
       })
       .when('/bookouts', {
-        templateUrl: 'views/bookouts.html',
+        templateUrl: 'views/bookings.html',
         controller: 'BookoutsCtrl'
       })
       .when('/requests', {
-        templateUrl: 'views/requests.html',
+        templateUrl: 'views/bookings.html',
         controller: 'RequestsCtrl'
       })
       .otherwise({

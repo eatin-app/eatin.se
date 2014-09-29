@@ -2,7 +2,8 @@
 
 module.exports = ['$scope', 'Booking',
 function ($scope, Booking) {
-  $scope.requests = Booking.query({
+  $scope.who = 'guest';
+  $scope.bookings = Booking.query({
     type: 'requests'
   });
 }];
