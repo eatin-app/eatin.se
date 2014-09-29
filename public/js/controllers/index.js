@@ -5,6 +5,7 @@ module.exports = 'controllers';
 var angular = require('angular');
 var controllers = angular.module(module.exports, []);
 
+controllers.controller('BookingCtrl', require('./BookingCtrl'));
 controllers.controller('BookinsCtrl', require('./BookinsCtrl'));
 controllers.controller('BookoutsCtrl', require('./BookoutsCtrl'));
 controllers.controller('HostCtrl', require('./HostCtrl'));
