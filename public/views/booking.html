@@ -4,9 +4,9 @@
   <dt ng-if="booking.showAddress">Where</dt>
   <dd ng-if="booking.showAddress">{{booking.host.address}}</dd>
   <dt>Host</dt>
-  <dd>{{booking.host.name}}</dd>
+  <dd><a href="#/host/{{booking.host.id}}">{{booking.host.name}}</a></dd>
   <dt>Guest</dt>
-  <dd>{{booking.guest.name}}</dd>
+  <dd><a href="#/host/{{booking.guest.id}}">{{booking.guest.name}}</a></dd>
 </dl>
 
 <footer>

@@ -4,6 +4,7 @@ module.exports = ['$rootScope', '$scope', 'Auth', 'User', 'AUTH_EVENTS',
 function ($rootScope, $scope, Auth, User, AUTH_EVENTS) {
   $scope.user = Auth.user;
   $scope.editable = true;
+  $scope.canSeeAddress = true;
 
   $scope.edit = function edit () {
     $scope.editedUser = new User($scope.user);
