@@ -1,0 +1,13 @@
+{
+  "id": "1",
+  "guest": {
+    "id": "1",
+    "name": "Andreas Hultgren"
+  },
+  "host": {
+    "id": "2",
+    "name": "Axel Odelberg"
+  },
+  "message": "Hej jag vill ha mat.",
+  "state": "pending"
+}
