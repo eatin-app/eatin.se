@@ -7,6 +7,10 @@ module.exports = ['$routeProvider',
         templateUrl: 'views/index.html',
         controller: 'UsersCtrl'
       })
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl'
+      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'

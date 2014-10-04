@@ -1,0 +1,18 @@
+<h1>Sign up!</h1>
+<form ng-submit="onSubmit(user)">
+  Email: <input type="text" ng-model="user.email">
+  <br>
+  Address: <textarea ng-model="user.address"></textarea>
+  <br>
+  Phone: <input type="text" ng-model="user.phone">
+  <br>
+  Introduction: <textarea ng-model="user.introduction"></textarea>
+  <br>
+  Password: <input type="password" ng-model="user.password">
+  <br>
+  Confirm password: <input type="password" ng-model="user.confirmPassword">
+  <br>
+
+  <div ng-hide="!error">{{error}}</div>
+  <button type="submit">Sign up</button>
+</form>

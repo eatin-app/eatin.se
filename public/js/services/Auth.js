@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = ['$rootScope', '$http', 'SessionStorage', 'CONFIG', 'AUTH_EVENTS',
-function ($rootScope, $http, SessionStorage, CONFIG, AUTH_EVENTS) {
+module.exports = ['$rootScope', '$http', 'SessionStorage', 'CONFIG', 'AUTH_EVENTS', 'User',
+function ($rootScope, $http, SessionStorage, CONFIG, AUTH_EVENTS, User) {
   var user = SessionStorage.get('user', {});
 
   var service = {
@@ -32,6 +32,9 @@ function ($rootScope, $http, SessionStorage, CONFIG, AUTH_EVENTS) {
         $rootScope.$broadcast(AUTH_EVENTS.userUpdated, {});
         $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
       });
+    },
+    register: function (user) {
+      return new User(user).$create();
     }
   };
 
