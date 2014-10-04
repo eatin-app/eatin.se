@@ -16,7 +16,7 @@ module.exports = function (lets) {
 
   production.on('deploy:update', function (options, done) {
     logger.info('letsfile', 'Building production files');
-    exec('gulp build-production', function (err, stdout, stderr) {
+    exec('./node_modules/.bin/gulp build-production', function (err, stdout, stderr) {
       if(err) {
         logger.error('letsfile', 'Error building production files');
         logger.error(err);
