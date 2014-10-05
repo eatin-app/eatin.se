@@ -6,14 +6,16 @@
         <input type="text" ng-model="editedUser.name">
       </div>
     </header>
+
     <section class="profile__content">
       <div ng-if="!editing">
-        {{user.introduction}}
+        {{user.bio}}
       </div>
       <div ng-if="editing">
-        <textarea type="text" ng-model="editedUser.introduction"></textarea>
+        <textarea type="text" ng-model="editedUser.bio"></textarea>
       </div>
     </section>
+
     <section ng-if="canSeeAddress" class="profile__address">
       <div ng-if="!editing">
         {{user.address}}
@@ -22,6 +24,26 @@
         <textarea type="text" ng-model="editedUser.address"></textarea>
       </div>
     </section>
+
+    <section ng-if="canSeeEmail" class="profile__email">
+      <div ng-if="!editing">
+        {{user.email}}
+      </div>
+      <div ng-if="editing">
+        <textarea type="text" ng-model="editedUser.email"></textarea>
+      </div>
+    </section>
+
+    <section ng-if="canSeePhone" class="profile__phone">
+      <div ng-if="!editing">
+        {{user.phone}}
+      </div>
+      <div ng-if="editing">
+        <textarea type="text" ng-model="editedUser.phone"></textarea>
+      </div>
+    </section>
+
+
     <footer ng-if="editable">
       <div ng-if="error">{{error}}</div>
       <button type="button" ng-if="!editing" ng-click="edit()">Redigera</button>

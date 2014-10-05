@@ -6,13 +6,12 @@ function ($rootScope, $http, SessionStorage, CONFIG, AUTH_EVENTS, User) {
 
   var service = {
     user: user,
-    isLoggedIn: !!user.id,
+    isLoggedIn: !!user._id,
     login: function login(username, password) {
       var userData = {};
 
-      //## While prototyping, disregard password
-      //## Should be post
-      var request = $http.get(CONFIG.apiUrl + '/users/' + username, {
+      var request = $http.post(CONFIG.apiUrl + '/sessions', {
+        email: username,
         password: password
       });
 
@@ -34,14 +33,14 @@ function ($rootScope, $http, SessionStorage, CONFIG, AUTH_EVENTS, User) {
       });
     },
     register: function (user) {
-      return new User(user).$create();
+      return new User(user).$save();
     }
   };
 
   $rootScope.$on(AUTH_EVENTS.userUpdated, function (e, data) {
     service.user = data;
 
-    service.isLoggedIn = !!service.user.id;
+    service.isLoggedIn = !!service.user._id;
     SessionStorage.set('user', data);
   });
 
