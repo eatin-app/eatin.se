@@ -11,12 +11,20 @@ module.exports = ['$scope', 'Auth', '$location',
     }
 
     $scope.login = function (username, password) {
-      Auth.login(username, password).then(function loginSuccess () {
-        $scope.error = '';
+      $scope.error = '';
+
+      Auth.login(username, password).success(function loginSuccess () {
         $location.path('/');
-      }, function loginFail () {
+      }).error(function loginFail (status, code) {
         // Show error message
-        $scope.error = 'Du har skrivit fel!';
+        switch(code) {
+          case 401:
+            $scope.error = 'Wrong username or password';
+            break;
+          default:
+            $scope.error = 'Something wen\'t wrong';
+            break;
+        }
       });
     };
   }
