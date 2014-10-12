@@ -27,9 +27,11 @@ function ($rootScope, $http, SessionStorage, CONFIG, AUTH_EVENTS, User) {
       return request;
     },
     logout: function () {
-      return $http.post(CONFIG.apiUrl + '/logout').finally(function () {
+      return $http.delete(CONFIG.apiUrl + '/sessions').then(function logoutSuccess () {
         $rootScope.$broadcast(AUTH_EVENTS.userUpdated, {});
         $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
+      }, function logoutFail () {
+        console.log('Logout failed');
       });
     },
     register: function (user) {

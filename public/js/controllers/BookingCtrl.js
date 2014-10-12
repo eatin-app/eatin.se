@@ -4,22 +4,18 @@ module.exports = ['$scope', '$route', '$routeParams', 'Booking',
 function BookingCtrl ($scope, $route, $routeParams, Booking) {
   $scope.newBooking = {}; // Just used because plain variables does not bind
   $scope.booking = Booking.get({
-    type: 'bookings',
     id: $routeParams.id
   });
 
   $scope.booking.$promise.then(function bookingSuccess () {
-    $scope.showAddress = $scope.booking.state !== 'pending';
-    $scope.rejectable = $scope.booking.state !== 'rejected';
-    $scope.acceptable = $scope.booking.state === 'pending';
+    $scope.showAddress = $scope.booking.status !== 'pending';
+    $scope.rejectable = $scope.booking.status !== 'rejected';
+    $scope.acceptable = $scope.booking.status === 'pending';
   });
 
 
   $scope.reject = function reject () {
-    $scope.booking.$remove({
-      type: 'request',
-      id: $scope.booking.id
-    }).then(function success () {
+    new Booking($scope.booking).$remove().then(function success () {
       $route.reload();
     }, function fail () {
       $scope.error = 'Something went wrong';
@@ -27,20 +23,20 @@ function BookingCtrl ($scope, $route, $routeParams, Booking) {
   };
 
   $scope.accept = function accept (date, time) {
+    var datetime = new Date(date + 'T' + time + getTimezone());
+
     // Validate date
     // Assume the native types are always used for now
-    if(!date || !time) {
-      $scope.error = 'You must enter time and date';
+    if(!date || !time || isNaN(datetime)) {
+      $scope.error = 'You must enter a valid time and date';
       return;
     }
 
     new Booking({
-      date: date + 'T' + time + getTimezone(),
-      state: 'accepted'
-    }).$save({
-      type: 'booking',
-      id: $scope.booking.id
-    }).then(function () {
+      _id: $scope.booking._id,
+      datetime: datetime.toJSON(),
+      status: 'accepted'
+    }).$save().then(function () {
       $route.reload();
     }, function () {
       $scope.error = 'Something went wrong';

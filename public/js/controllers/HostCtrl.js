@@ -21,7 +21,7 @@ function ($scope, $http, $routeParams, User, Booking) {
   $scope.book = function book (message) {
     var booking = new Booking({
       message: message,
-      to: $scope.user.id
+      host: $scope.user._id
     });
 
     $scope.bookingError = '';

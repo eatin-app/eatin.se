@@ -10,6 +10,7 @@
 </dl>
 
 <footer>
+  <p ng-if="error">{{error}}</p>
   <button type="button" ng-if="rejectable" ng-click="reject()">Reject</button>
   <button type="button" ng-if="acceptable" ng-click="accept(newBooking.date, newBooking.time)">Confirm</button>
   <input type="date" ng-if="acceptable" ng-model="newBooking.date" placeholder="YYYY-MM-DD">

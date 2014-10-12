@@ -1,9 +1,11 @@
 'use strict';
 
-module.exports = ['$scope', 'Booking',
-function ($scope, Booking) {
+module.exports = ['$scope', 'User', 'Auth',
+function ($scope, User, Auth) {
   $scope.who = 'host';
-  $scope.bookings = Booking.query({
-    type: 'bookouts'
+
+  $scope.bookings = User.Booking.query({
+    type: 'bookouts',
+    userid: Auth.user._id
   });
 }];

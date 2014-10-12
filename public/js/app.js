@@ -17,6 +17,24 @@ require('npm-angular-resource')(window, angular);
 
 app.config(routes);
 
+app.config(['$httpProvider', function ($httpProvider) {
+  $httpProvider.interceptors.push(['CONFIG', 'SessionStorage',
+  function (CONFIG, SessionStorage) {
+    return {
+      request: function (config) {
+        var user = SessionStorage.get('user', undefined);
+
+        // Add Authorization header to all requests to api
+        if(config.url.indexOf(CONFIG.apiUrl) === 0 && user.token) {
+          config.headers.Authorization = user.token;
+        }
+
+        return config;
+      }
+    };
+  }]);
+}]);
+
 app.constant('CONFIG', config);
 app.constant('AUTH_EVENTS', {
   userUpdated: 'auth-user-updated',
