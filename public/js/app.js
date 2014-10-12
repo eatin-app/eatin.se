@@ -22,7 +22,7 @@ app.config(['$httpProvider', function ($httpProvider) {
   function (CONFIG, SessionStorage) {
     return {
       request: function (config) {
-        var user = SessionStorage.get('user', undefined);
+        var user = SessionStorage.get('user', {});
 
         // Add Authorization header to all requests to api
         if(config.url.indexOf(CONFIG.apiUrl) === 0 && user.token) {
