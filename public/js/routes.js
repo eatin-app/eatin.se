@@ -15,6 +15,10 @@ module.exports = ['$routeProvider',
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/confirm', {
+        templateUrl: 'views/confirm.html',
+        controller: 'ConfirmCtrl'
+      })
       .when('/logout', {
         resolve: {
           redirect: require('./controllers/LogoutCtrl')

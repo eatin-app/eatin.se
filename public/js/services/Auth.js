@@ -36,6 +36,27 @@ function ($rootScope, $http, SessionStorage, CONFIG, AUTH_EVENTS, User) {
     },
     register: function (user) {
       return new User(user).$save();
+    },
+    confirm: function (token) {
+      var request;
+      var userData = {};
+
+      SessionStorage.set('user', {
+        token: token
+      });
+
+      request = $http.get(CONFIG.apiUrl + '/sessions');
+
+      request.then(function (result) {
+        userData = result.data;
+        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+      }, function () {
+        $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+      }).finally(function () {
+        $rootScope.$broadcast(AUTH_EVENTS.userUpdated, userData);
+      });
+
+      return request;
     }
   };
 

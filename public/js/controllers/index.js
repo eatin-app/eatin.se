@@ -8,6 +8,7 @@ var controllers = angular.module(module.exports, []);
 controllers.controller('BookingCtrl', require('./BookingCtrl'));
 controllers.controller('BookinsCtrl', require('./BookinsCtrl'));
 controllers.controller('BookoutsCtrl', require('./BookoutsCtrl'));
+controllers.controller('ConfirmCtrl', require('./ConfirmCtrl'));
 controllers.controller('HostCtrl', require('./HostCtrl'));
 controllers.controller('LoginCtrl', require('./LoginCtrl'));
 controllers.controller('LogoutCtrl', require('./LogoutCtrl'));
