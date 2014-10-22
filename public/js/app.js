@@ -1,6 +1,8 @@
 'use strict';
 
+var _ = require('underscore');
 var angular = require('angular');
+_.extend(angular, window.angular); // Hack until proper npm support...
 var controllers = require('./controllers');
 var routes = require('./routes');
 var services = require('./services');

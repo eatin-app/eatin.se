@@ -10,9 +10,10 @@
   "author": "Andreas Hultgren",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.2.19",
+    "angular": "^1.3.0",
     "angular-route": "^1.2.17-build.163.1",
-    "npm-angular-resource": "^1.3.0-build.2880"
+    "npm-angular-resource": "^1.3.0-build.2880",
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "browserify": "~5.11.0",
