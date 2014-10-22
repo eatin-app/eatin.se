@@ -15,16 +15,8 @@ module.exports = ['$scope', 'Auth', '$location',
 
       Auth.login(username, password).success(function loginSuccess () {
         $location.path('/');
-      }).error(function loginFail (status, code) {
-        // Show error message
-        switch(code) {
-          case 401:
-            $scope.error = 'Wrong username or password';
-            break;
-          default:
-            $scope.error = 'Something wen\'t wrong';
-            break;
-        }
+      }).error(function loginFail (data) {
+        $scope.error = data.error || 'Something wen\'t wrong';
       });
     };
   }
