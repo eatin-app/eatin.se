@@ -43,6 +43,26 @@
       </div>
     </section>
 
+    <section ng-if="editable">
+        Available as host:
+        <input
+          ng-if="!editing"
+          type="checkbox"
+          ng-model="user.isHost"
+          ng-true-value="'true'"
+          ng-false-value="'false'"
+          disabled
+          >
+        <input
+          ng-if="editing"
+          type="checkbox"
+          ng-model="editedUser.isHost"
+          ng-true-value="'true'"
+          ng-false-value="'false'"
+          >
+      </div>
+    </section>
+
 
     <footer ng-if="editable">
       <div ng-if="error">{{error}}</div>

@@ -7,9 +7,9 @@ function ($rootScope, $scope, Auth, User, AUTH_EVENTS) {
   $scope.canSeeAddress = true;
   $scope.canSeeEmail = true;
   $scope.canSeePhone = true;
+  $scope.editedUser = new User($scope.user);
 
   $scope.edit = function edit () {
-    $scope.editedUser = new User($scope.user);
     $scope.editing = true;
   };
 
