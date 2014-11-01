@@ -10,12 +10,14 @@ var config = require('./config');
 
 var app = module.exports = exports = angular.module('readerApp', [
   'ngRoute',
+  'angularFileUpload',
   controllers,
   services
 ]);
 
 require('angular-route');
 require('npm-angular-resource')(window, angular);
+require('angular-file-upload');
 
 app.config(routes);
 

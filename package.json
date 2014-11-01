@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.3.0",
+    "angular-file-upload": "^1.6.4",
     "angular-route": "^1.2.17-build.163.1",
     "npm-angular-resource": "^1.3.0-build.2880",
     "underscore": "^1.7.0"

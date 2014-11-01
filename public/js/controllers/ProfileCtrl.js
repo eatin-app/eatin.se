@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = ['$rootScope', '$scope', 'Auth', 'User', 'AUTH_EVENTS',
-function ($rootScope, $scope, Auth, User, AUTH_EVENTS) {
+module.exports = ['$rootScope', '$scope', '$route', 'Auth', 'User', 'AUTH_EVENTS', '$upload',
+function ($rootScope, $scope, $route, Auth, User, AUTH_EVENTS, $upload) {
   $scope.user = Auth.user;
   $scope.editable = true;
   $scope.canSeeAddress = true;
@@ -21,12 +21,20 @@ function ($rootScope, $scope, Auth, User, AUTH_EVENTS) {
     $scope.error = '';
 
     newUser.$save().then(function saveSuccess () {
-      //## Fetch stored user instead of using the local one?
-      $scope.user = newUser;
-      $scope.editing = false;
-      $rootScope.$broadcast(AUTH_EVENTS.userUpdated, newUser);
+      Auth.updateUserData().then($route.reload);
     }, function saveFail () {
       $scope.error = 'Save failed';
+    });
+  };
+
+  $scope.onFileSelect = function ($files) {
+    //## Show spinner
+    $scope.upload = $upload.upload({
+      url: Auth.getProfileImageUrl(),
+      file: $files
+    }).success(function () {
+      //## Handle error?
+      Auth.updateUserData().then($route.reload);
     });
   };
 }];

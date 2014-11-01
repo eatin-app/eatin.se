@@ -7,6 +7,15 @@
       </div>
     </header>
 
+    <section>
+      <div ng-if="user.profileImage">
+        <img ng-src="{{user.profileImageUrl}}">
+      </div>
+      <div ng-if="!editing">
+        <input type="file" ng-file-select="onFileSelect($files)">
+      </div>
+    </section>
+
     <section class="profile__content">
       <div ng-if="!editing">
         {{user.bio}}
