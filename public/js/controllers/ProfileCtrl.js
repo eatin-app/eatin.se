@@ -7,6 +7,7 @@ function ($rootScope, $scope, $route, Auth, User, AUTH_EVENTS, $upload) {
   $scope.canSeeAddress = true;
   $scope.canSeeEmail = true;
   $scope.canSeePhone = true;
+  $scope.canLogout = true;
   $scope.editedUser = new User($scope.user);
 
   $scope.edit = function edit () {

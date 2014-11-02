@@ -1,0 +1,33 @@
+.footermenu {
+  background-color: @color-black;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &-container {
+    margin-bottom: 50px;
+  }
+
+  &-inner {
+    display: flex;
+    margin: auto;
+    padding: 0;
+  }
+
+  &-item {
+    flex-grow: 1;
+    padding: 0;
+    text-align: center;
+  }
+
+  &-link {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+
+    a&_active {
+      color: @color-primary;
+    }
+  }
+}

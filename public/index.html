@@ -7,23 +7,25 @@
   <script src="/dist/app.js"></script>
   <link rel="stylesheet" href="/dist/main.css">
 </head>
-<body>
-  <header class="main-header">
-    <div class="main-header__logo">
-      Eat<span>In</span>
+<body class="footermenu-container">
+  <header class="mainheader">
+    <div class="layout-globalwide">
+      <span class="mainheader-logo">
+        Eatin
+      </span>
     </div>
   </header>
   <section class="main" ng-view></section>
 
-  <nav class="footer-menu" ng-controller="NavigationCtrl">
-    <ul class="footer-menu__inner" ng-hide="auth.isLoggedIn">
-      <li class="footer-menu__item" ng-repeat="item in items">
+  <nav class="footermenu theme-black" ng-controller="NavigationCtrl">
+    <ul class="footermenu-inner layout-globalwide" ng-hide="auth.isLoggedIn">
+      <li class="footermenu-item" ng-repeat="item in items">
         <a
-          class="footer-menu__link"
-          ng-class="{ 'footer-menu__link--active': isActive(item.url) }"
+          class="footermenu-link"
+          ng-class="{ 'footermenu-link_active': isActive(item.url) }"
           href="#{{item.url}}"
           >
-          {{item.text}}
+          <i class="icon icon-{{item.icon}}"></i>
         </a>
       </li>
     </ul>

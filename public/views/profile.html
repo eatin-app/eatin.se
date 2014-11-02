@@ -5,6 +5,7 @@
       <div ng-if="editing">
         <input type="text" ng-model="editedUser.name">
       </div>
+      <a class="profile-logout" ng-if="canLogout" href="/logout"><i class="icon icon-account-logout"></i></a>
     </header>
 
     <section>

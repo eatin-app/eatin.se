@@ -3,37 +3,40 @@
 var loggedOutItems = [
   {
     url: '/login',
-    text: 'Logga in'
+    text: 'Logga in',
+    icon: 'account-login'
   },
   {
     url: '/register',
-    text: 'Registrera'
+    text: 'Registrera',
+    icon: 'clipboard'
   }
 ];
 var loggedInItems = [
   {
     url: '/',
-    text: 'Hosts'
+    text: 'Hosts',
+    icon: 'list'
   },
   {
     url: '/profile',
-    text: 'Profil'
+    text: 'Profil',
+    icon: 'person'
   },
   {
     url: '/bookins',
-    text: 'Bookins'
+    text: 'Bookins',
+    icon: 'calendar'
   },
   {
     url: '/bookouts',
-    text: 'Bookouts'
+    text: 'Bookouts',
+    icon: 'calendar'
   },
   {
     url: '/requests',
-    text: 'Förfrågningar'
-  },
-  {
-    url: '/logout',
-    text: 'Logga ut'
+    text: 'Förfrågningar',
+    icon: 'question-mark'
   }
 ];
 

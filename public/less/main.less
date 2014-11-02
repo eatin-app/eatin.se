@@ -1,9 +1,21 @@
+@import "general/mixins";
 @import "general/colors";
+@import "general/dimensions";
+@import "general/typography";
+@import "general/icons";
 
 @import "general/reset";
 @import "general/global";
 
+/*
+ * For blocks we use BEM, with the following template:
+ * block-element_modifier
+ * Longer block/element names are concatenated without any dash or underscore
+ * inbetween, camelCased only if necessary.
+*/
+@import "blocks/layout";
+@import "blocks/theme";
 @import "blocks/main";
-@import "blocks/main-header";
+@import "blocks/mainheader";
 @import "blocks/hosts";
-@import "blocks/footer-menu";
+@import "blocks/footermenu";
