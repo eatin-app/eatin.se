@@ -1,9 +1,21 @@
 <p>
-  Welcome or something Lorem ipsum Minim ut mollit ex amet aute minim eiusmod cupidatat esse aliquip dolore incididunt aliquip qui in fugiat dolore magna laborum cupidatat nisi elit reprehenderit nisi tempor pariatur irure ut irure nisi deserunt ullamco dolor aute.
+  Ett community för folk som tycker om möten, människor och mat.
 </p>
-<h2>Hosts:</h2>
+<h1>Kolla vem som bjuder in</h1>
+<i class="icon icon-arrow-bottom"></i>
 <ul class="hosts">
-  <li class="hosts__host" ng-repeat="host in hosts">
-    <a href="#/host/{{host._id}}">{{host.name}}</a>
+  <li class="hosts-item" ng-repeat="host in hosts">
+    <header class="hosts-item-header layout-row">
+      <img class="hosts-item-profileimage" ng-src="{{host.profileImageUrl}}">
+      <hgroup class="hosts-item-header-content">
+        <h1 class="hosts-item-name"><a href="#/host/{{host._id}}">{{host.name}}</a></h1>
+        <h2 class="hosts-item-location">{{host.address}}</h2>
+      </hgroup>
+    </header>
+    <section class="hosts-item-content">
+      <p>
+        {{host.bio|excerpt}}
+      </p>
+    </section>
   </li>
 </ul>

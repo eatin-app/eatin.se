@@ -1,0 +1,31 @@
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+@import url(http://fonts.googleapis.com/css?family=Cutive);
+
+@ff-mono: Cutive Mono;
+@ff-serif: Cutive;
+@ff-sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif;
+
+@fs-base: 16px;
+
+.fs-rem(@size) {
+  font-size: unit((@size/@fs-base), rem);
+}
+
+/* Sizes
+============================================================================= */
+
+.fs-small {
+  .fs-rem(14);
+}
+
+.fs-normal {
+  .fs-rem(16);
+}
+
+.fs-big {
+  .fs-rem(20);
+}
+
+.fs-large {
+  .fs-rem(26);
+}

@@ -1,29 +1,23 @@
 <form ng-submit="save(editedUser)">
   <article class="profile">
-    <header class="profile__header">
-      <h1 ng-if="!editing">{{user.name}}</h1>
-      <div ng-if="editing">
-        <input type="text" ng-model="editedUser.name">
-      </div>
-      <a class="profile-logout" ng-if="canLogout" href="/logout"><i class="icon icon-account-logout"></i></a>
+    <header class="profile-header theme-black layout-row">
+      <img class="profile-profileimage" ng-src="{{user.profileImageUrl}}">
+      <hgroup class="profile-header-content">
+        <h1 class="profile-name" ng-if="!editing">{{user.name}}</h1>
+        <input class="profile-name" ng-if="editing" type="text" ng-model="editedUser.name">
+
+        <div ng-if="editing">
+          <input type="file" ng-file-select="onFileSelect($files)">
+        </div>
+      </hgroup>
     </header>
 
-    <section>
-      <div ng-if="user.profileImage">
-        <img ng-src="{{user.profileImageUrl}}">
-      </div>
-      <div ng-if="!editing">
-        <input type="file" ng-file-select="onFileSelect($files)">
-      </div>
-    </section>
-
     <section class="profile__content">
-      <div ng-if="!editing">
+      <p ng-if="!editing">
         {{user.bio}}
-      </div>
-      <div ng-if="editing">
-        <textarea type="text" ng-model="editedUser.bio"></textarea>
-      </div>
+      </p>
+
+      <textarea ng-if="editing" type="text" ng-model="editedUser.bio"></textarea>
     </section>
 
     <section ng-if="canSeeAddress" class="profile__address">
@@ -73,6 +67,7 @@
       </div>
     </section>
 
+    <a class="profile-logout" ng-if="canLogout" href="/logout"><i class="icon icon-account-logout"></i></a>
 
     <footer ng-if="editable">
       <div ng-if="error">{{error}}</div>

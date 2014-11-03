@@ -3,6 +3,7 @@
 var _ = require('underscore');
 var angular = require('angular');
 _.extend(angular, window.angular); // Hack until proper npm support...
+var filters = require('./filters');
 var controllers = require('./controllers');
 var routes = require('./routes');
 var services = require('./services');
@@ -11,6 +12,7 @@ var config = require('./config');
 var app = module.exports = exports = angular.module('readerApp', [
   'ngRoute',
   'angularFileUpload',
+  filters,
   controllers,
   services
 ]);
