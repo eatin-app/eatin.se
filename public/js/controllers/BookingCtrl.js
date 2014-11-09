@@ -25,13 +25,6 @@ function BookingCtrl ($scope, $route, $routeParams, Booking) {
   $scope.accept = function accept (date, time) {
     var datetime = new Date(date + 'T' + time + getTimezone());
 
-    // Validate date
-    // Assume the native types are always used for now
-    if(!date || !time || isNaN(datetime)) {
-      $scope.error = 'You must enter a valid time and date';
-      return;
-    }
-
     new Booking({
       _id: $scope.booking._id,
       datetime: datetime.toJSON(),
