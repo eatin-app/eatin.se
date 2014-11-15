@@ -35,6 +35,11 @@ app.config(['$httpProvider', function ($httpProvider) {
           config.headers.Authorization = user.token;
         }
 
+        // Add X-Client header to all requests to api
+        if(config.url.indexOf(CONFIG.apiUrl) === 0) {
+          config.headers['X-Client'] = CONFIG.client;
+        }
+
         return config;
       }
     };
