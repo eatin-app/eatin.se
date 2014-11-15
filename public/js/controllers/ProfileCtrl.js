@@ -10,6 +10,7 @@ function ($rootScope, $scope, $route, Auth, User, AUTH_EVENTS, $upload) {
   $scope.canLogout = true;
   $scope.editedUser = new User($scope.user);
 
+  console.log($scope.user);
   $scope.edit = function edit () {
     $scope.editing = true;
   };
