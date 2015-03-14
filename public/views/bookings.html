@@ -1,7 +1,14 @@
-<ul>
-  <li ng-repeat="booking in bookings">
-    <a href="#/booking/{{booking._id}}">
-      {{booking[who].name}} | {{booking.datetime}}
+<ul class="hosts">
+  <li class="hosts-item" ng-repeat="booking in bookings">
+    <div>{{booking.datetime}}</div>
+    <a href="#/booking/{{booking._id}}" class="hosts-item-header layout-row">
+      <img class="hosts-item-profileimage" ng-src="{{booking[who].profileImageUrl}}">
+      <hgroup class="hosts-item-header-content">
+        <h1 class="hosts-item-name">
+          <a href="#/host/{{booking[who]._id}}">{{booking[who].name}}</a>
+        </h1>
+        <h2 class="hosts-item-location">&mdash; {{booking[who].city}}</h2>
+      </hgroup>
     </a>
   </li>
 </ul>
