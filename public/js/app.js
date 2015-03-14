@@ -1,8 +1,11 @@
 'use strict';
 
-var _ = require('underscore');
+// Hack until proper npm support...
 var angular = require('angular');
-_.extend(angular, window.angular); // Hack until proper npm support...
+Object.keys(window.angular).forEach(function (key) {
+  angular[key] = window.angular[key];
+});
+
 var filters = require('./filters');
 var controllers = require('./controllers');
 var routes = require('./routes');
