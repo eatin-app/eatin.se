@@ -2,6 +2,7 @@
 
 var gulp = require("gulp"),
     less = require("gulp-less"),
+    autoprefixer = require("gulp-autoprefixer"),
     minifyCss = require("gulp-minify-css"),
     sourcemaps = require("gulp-sourcemaps"),
     cmq = require("gulp-combine-media-queries"),
@@ -14,6 +15,10 @@ gulp.task("less", function() {
     return gulp.src(path.join(config.root, "less", "main.less"))
         .pipe(sourcemaps.init())
         .pipe(less())
+        .pipe(autoprefixer({
+            browsers: ["last 2 versions"],
+            cascade: false
+        }))
         .on("error", handleErrors.warning)
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.join(config.root, "dist")));
@@ -22,6 +27,10 @@ gulp.task("less", function() {
 gulp.task("less-production", function() {
     return gulp.src(path.join(config.root, "less", "main.less"))
         .pipe(less())
+        .pipe(autoprefixer({
+            browsers: ["last 2 versions"],
+            cascade: false
+        }))
         .on("error", handleErrors.warning)
         .pipe(cmq({
             log: true
