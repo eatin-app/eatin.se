@@ -8,7 +8,11 @@ function ($scope, User, Auth) {
   })
   .$promise.then(function (bookings) {
     $scope.bookings = bookings.map(function (booking) {
-      booking.showInList = booking.guest._id === Auth.user._id && booking.host || booking.guest;
+      var userIsGuest = booking.guest._id === Auth.user._id;
+
+      booking.showInList = userIsGuest && booking.host || booking.guest;
+      booking.separatorText = userIsGuest && 'ska du till' || 'tar du emot';
+
       return booking;
     });
   });
