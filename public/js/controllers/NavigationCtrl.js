@@ -24,13 +24,8 @@ var loggedInItems = [
     icon: 'person'
   },
   {
-    url: '/bookins',
-    text: 'Bookins',
-    icon: 'calendar'
-  },
-  {
-    url: '/bookouts',
-    text: 'Bookouts',
+    url: '/bookings',
+    text: 'Bookings',
     icon: 'calendar'
   },
   {

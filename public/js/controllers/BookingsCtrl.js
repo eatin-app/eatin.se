@@ -3,11 +3,12 @@
 module.exports = ['$scope', 'User', 'Auth',
 function ($scope, User, Auth) {
   User.Booking.query({
-    type: 'requests',
+    type: 'bookings',
     userid: Auth.user._id
-  }).$promise.then(function (bookings) {
+  })
+  .$promise.then(function (bookings) {
     $scope.bookings = bookings.map(function (booking) {
-      booking.who = booking.guest;
+      booking.showInList = booking.guest._id === Auth.user._id && booking.host || booking.guest;
       return booking;
     });
   });

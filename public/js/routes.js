@@ -32,13 +32,9 @@ module.exports = ['$routeProvider',
         templateUrl: 'views/profile.html',
         controller: 'HostCtrl'
       })
-      .when('/bookins', {
+      .when('/bookings', {
         templateUrl: 'views/bookings.html',
-        controller: 'BookinsCtrl'
-      })
-      .when('/bookouts', {
-        templateUrl: 'views/bookings.html',
-        controller: 'BookoutsCtrl'
+        controller: 'BookingsCtrl'
       })
       .when('/requests', {
         templateUrl: 'views/bookings.html',

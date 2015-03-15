@@ -2,12 +2,12 @@
   <li class="hosts-item" ng-repeat="booking in bookings">
     <div>{{booking.datetime}}</div>
     <a href="#/booking/{{booking._id}}" class="hosts-item-header layout-row">
-      <img class="hosts-item-profileimage" ng-src="{{booking[who].profileImageUrl}}">
+      <img class="hosts-item-profileimage" ng-src="{{booking.showInList.profileImageUrl}}">
       <hgroup class="hosts-item-header-content">
         <h1 class="hosts-item-name">
-          <a href="#/host/{{booking[who]._id}}">{{booking[who].name}}</a>
+          <a href="#/host/{{booking.showInList._id}}">{{booking.showInList.name}}</a>
         </h1>
-        <h2 class="hosts-item-location">&mdash; {{booking[who].city}}</h2>
+        <h2 class="hosts-item-location">&mdash; {{booking.showInList.city}}</h2>
       </hgroup>
     </a>
   </li>
