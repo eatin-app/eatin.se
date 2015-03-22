@@ -2,6 +2,8 @@
 
 module.exports = ['$scope', 'User', 'Auth',
 function ($scope, User, Auth) {
+  $scope.title = 'Anmälningar';
+
   User.Booking.query({
     type: 'requests',
     userid: Auth.user._id
@@ -10,5 +12,9 @@ function ($scope, User, Auth) {
       booking.who = booking.guest;
       return booking;
     });
+
+    if(!bookings.length) {
+      $scope.emptyText = 'Du har inga anmälningar';
+    }
   });
 }];
