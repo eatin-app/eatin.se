@@ -10,14 +10,8 @@
     <div class="hosts-item-preheader c-light">
       {{booking.datetime|longdate}} {{booking.separatorText}}:
     </div>
-    <a href="#/booking/{{booking._id}}" class="hosts-item-header layout-row">
-      <img class="hosts-item-profileimage" ng-src="{{booking.showInList.profileImageUrl}}">
-      <hgroup class="hosts-item-header-content">
-        <h1 class="hosts-item-name">
-          {{booking.showInList.name}}
-        </h1>
-        <h2 class="hosts-item-location">&mdash; {{booking.showInList.city}}</h2>
-      </hgroup>
+    <a href="#/booking/{{booking._id}}">
+      <user-card user="booking.showInList"></user-card>
     </a>
   </li>
 </ul>

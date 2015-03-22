@@ -6,14 +6,8 @@
 
 <ul class="hosts">
   <li class="hosts-item" ng-repeat="host in hosts">
-    <header class="hosts-item-header layout-row">
-      <img class="hosts-item-profileimage" ng-src="{{host.profileImageUrl}}">
-      <hgroup class="hosts-item-header-content">
-        <h1 class="hosts-item-name"><a href="#/host/{{host._id}}">{{host.name}}</a></h1>
-        <h2 class="hosts-item-location">&mdash; {{host.city}}</h2>
-      </hgroup>
-    </header>
-    <section class="hosts-item-content">
+    <user-card user="host"></user-card>
+    <section class="host-excerpt">
       <p>
         {{host.bio|excerpt}}
       </p>
