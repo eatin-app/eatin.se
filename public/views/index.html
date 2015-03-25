@@ -7,10 +7,13 @@
 <ul class="hosts">
   <li class="hosts-item" ng-repeat="host in hosts">
     <user-card user="host"></user-card>
-    <section class="host-excerpt">
-      <p>
-        {{host.bio|excerpt}}
-      </p>
-    </section>
+    <p class="host-excerpt c-light">
+      {{host.bio|excerpt}}
+    </p>
+    <a href="#/host/{{host._id}}" class="btn btn-large">Anmäl mig!</a>
   </li>
 </ul>
+
+<p>
+  Vill du få ett annat förslag, <a href="#">Klicka här</a>
+</p>

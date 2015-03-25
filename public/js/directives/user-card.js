@@ -6,7 +6,7 @@ module.exports = [function () {
       user: '=user'
     },
     controller: function ($scope) {
-      $scope.user.profileImageUrl = $scope.user.profileImageUrl.replace(/\{\{size\}\}/, '50x50');
+      $scope.user.profileImageUrl = ($scope.user.profileImageUrl || '').replace(/\{\{size\}\}/, '50x50');
     },
     templateUrl: 'views/directives/user-card.html'
   };
