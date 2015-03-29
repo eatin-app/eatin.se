@@ -1,5 +1,5 @@
 <div class="userCard layout-row">
-  <img class="userCard-profileimage" ng-src="{{user.profileImageUrl}}">
+  <img ng-if="preparedUrl" class="userCard-profileimage" ng-src="{{preparedUrl}}">
   <hgroup class="userCard-content">
     <h1 class="userCard-name">
       {{user.name}}

@@ -5,8 +5,16 @@ module.exports = [function () {
     scope: {
       user: '=user'
     },
-    controller: function ($scope) {
-      $scope.user.profileImageUrl = ($scope.user.profileImageUrl || '').replace(/\{\{size\}\}/, '50x50');
+    link : function ($scope) {
+      if($scope.user && $scope.user.profileImageUrl) {
+        $scope.preparedUrl = $scope.user.profileImageUrl.replace(/\{\{size\}\}/, '50x50');
+      }
+      else if($scope.user && $scope.user.$promise) {
+        //## This is retarded
+        $scope.user.$promise.then(function () {
+          $scope.preparedUrl = $scope.user.profileImageUrl.replace(/\{\{size\}\}/, '50x50');
+        });
+      }
     },
     templateUrl: 'views/directives/user-card.html'
   };

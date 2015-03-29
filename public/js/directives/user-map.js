@@ -10,8 +10,18 @@ module.exports = ['CONFIG', '$sce', function (CONFIG, $sce) {
     controller: function ($scope) {
       var user = $scope.user;
 
-      $scope.mapUrl = $sce.trustAsResourceUrl(mapBase + '?key=' + CONFIG.googleMapsApiKey +
-        '&q=' + user.address + ',' + user.city + '+Sweden');
+      //## This is retarded
+      if(user.$promise && !user.$promise.$resolved) {
+        user.$promise.then(setUrl);
+      }
+      else {
+        setUrl();
+      }
+
+      function setUrl () {
+        $scope.mapUrl = $sce.trustAsResourceUrl(mapBase + '?key=' + CONFIG.googleMapsApiKey +
+          '&q=' + user.address + ',' + user.city + '+Sweden');
+      }
     },
     templateUrl: 'views/directives/user-map.html'
   };

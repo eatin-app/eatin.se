@@ -6,26 +6,14 @@
 </dl>
 
 <h2>Värd</h2>
-<div class="hosts-item-header layout-row">
-  <img class="hosts-item-profileimage" ng-src="{{booking.host.profileImageUrl}}">
-  <hgroup class="hosts-item-header-content">
-    <h1 class="hosts-item-name">
-      <a href="#/host/{{booking.host._id}}">{{booking.host.name}}</a>
-    </h1>
-    <h2 class="hosts-item-location">&mdash; {{booking.host.city}}</h2>
-  </hgroup>
-</div>
+<a href="#/host/{{booking.host._id}}">
+  <user-card user="booking.host"></user-card>
+</a>
 
 <h2>Gäst</h2>
-<div class="hosts-item-header layout-row">
-  <img class="hosts-item-profileimage" ng-src="{{booking.guest.profileImageUrl}}">
-  <hgroup class="hosts-item-header-content">
-    <h1 class="hosts-item-name">
-      <a href="#/host/{{booking.guest._id}}">{{booking.guest.name}}</a>
-    </h1>
-    <h2 class="hosts-item-location">&mdash; {{booking.guest.city}}</h2>
-  </hgroup>
-</div>
+<a href="#/host/{{booking.guest._id}}">
+  <user-card user="booking.guest"></user-card>
+</a>
 
 <footer>
   <p ng-if="error">{{error}}</p>
